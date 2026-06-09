@@ -386,9 +386,15 @@
     100% { transform: translateX(-50%); } 
   }
   @keyframes floatCloud {
-    0% { transform: translateX(-100px); }
-    100% { transform: translateX(100vw); }
+  0% {
+    /* Đảm bảo xuất phát hoàn toàn từ bên ngoài lề trái */
+    transform: translateX(-150px);
   }
+  100% {
+    /* Ép nó bay đến 100% màn hình CỘNG thêm 150px nữa để bay ra khỏi màn hình hoàn toàn */
+    transform: translateX(calc(100vw + 150px));
+  }
+}
 
 </style>
 </head>
@@ -494,8 +500,8 @@
     <div class="wish-container">
         <h2 class="wish-title">✨ Chúc zợ iu ✨</h2>
         <p class="wish-body">
-            Tủi mới lun zui zẻ, hạnh phúc và gặp được nhìu điều may mắn trong cuộc sống.<br><br>
-            Đây cũng là cái sinh nhật lần thứ 3 cùng với em ròi, hi vọng con số này sẽ nhân thêm 100 lần nữa nhé.<br><br>
+            Tủi mới lun zui zẻ, hạnh phúc và gặp được nhìu điều may mắn trong cuộc sống<br><br>
+            Đây cũng là cái sinh nhật lần thứ 3 cùng với em ròi, hi vọng con số này sẽ nhân thêm 100 lần nữa nhé<br><br>
             <span class="love-sign">❤️ Mãi iu 🎂</span>
         </p>
     </div>
