@@ -601,6 +601,7 @@
 </div>
 <script>
 /* ── HIỆU ỨNG THẮP NẾN MỞ MÀN ── */
+let isExperienceStarted = false;
 function startExperience() {
     // 1. Ép trình duyệt phát bài nhạc nền
     const music = document.getElementById('bg-music');
@@ -750,6 +751,23 @@ function openGift() {
     
   }, 500); /* 👈 Con số 500 này quyết định việc đứng lại xem pháo nổ trước khi lật */
 }
+
+/* ── TỰ ĐỘNG TẮT/BẬT NHẠC KHI CHUYỂN TAB ── */
+document.addEventListener("visibilitychange", function() {
+    const music = document.getElementById('bg-music');
+    
+    // Nếu tab bị ẩn (người dùng chuyển tab khác hoặc thu nhỏ trình duyệt)
+    if (document.hidden) {
+        music.pause();
+    } 
+    // Nếu người dùng quay lại tab thiệp
+    else {
+        // Chỉ phát nhạc tiếp nếu như trước đó đã bấm qua màn hình thắp nến
+        if (isExperienceStarted) {
+            music.play();
+        }
+    }
+});
 </script>
 </body>
 </html>
